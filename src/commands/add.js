@@ -6,7 +6,7 @@ const {
 } = process.env;
 
 const spotify = new Spotify(SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, SPOTIFY_REFRESH_TOKEN)
-const voteTimeMs = 10000;
+const voteTimeMs = 60000;
 const emojiRatings = new Map([[EMOJI_ID_FOR, 1], [EMOJI_ID_AGAINST, -1]]);
 
 async function add(client, message, args) {
