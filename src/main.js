@@ -25,7 +25,7 @@ client.on('message', message => {
         case 'add':
             return add(client, message, args);
         case 'playlist':
-            return playlist(message)
+            return playlist(message);
         default:
             return defaultCommand(message, commands);
     }

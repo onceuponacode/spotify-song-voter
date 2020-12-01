@@ -36,16 +36,10 @@ async function add(client, message, args) {
        ${url} @here`
     )
 
-    const guild = await client.guilds.fetch(GUILD_ID);
-    // const allMembers = await guild.members.fetch();
-    // const nonBotOnlineMembers = allMembers.filter(member => member.presence.status === 'online' && !member.user.bot)
-    const nonBotOnlineMembers = [1]
-
     const reactFilter = (reaction) => emojiRatings.has(reaction.emoji.identifier);
     const reactions = await voteMessage.awaitReactions(reactFilter, {
-        maxUsers: nonBotOnlineMembers.size,
         time: voteTimeMs
-    }).catch(reactions => reactions)
+    })
 
     if (reactions.array().length === 0)
         return await voteChannel.send(`Wait what 😕 ??? No one voted 🤔 ... I can't do anything if no one voted 🤷 `)
